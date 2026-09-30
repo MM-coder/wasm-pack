@@ -39,10 +39,10 @@ const getConfig = () => {
   let url = process.env.WASMPACK_CUSTOM_URL;
   if (url) {
     url = url
-      .replace("{{author}}", author)
-      .replace("{{name}}", name)
-      .replace("{{version}}", version)
-      .replace("{{platform}}", platform);
+      .replace(/{{author}}/g, author)
+      .replace(/{{name}}/g, name)
+      .replace(/{{version}}/g, version)
+      .replace(/{{platform}}/g, platform);
   } else {
     url = `https://github.com/${author}/${name}/releases/download/v${version}/${name}-v${version}-${platform}.tar.gz`;
   }
